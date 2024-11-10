@@ -24,11 +24,14 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// buisness logic function for create order
 func CreateOrderLogic(c *gin.Context, payload orders.OrderRequest) commonmodels.ApiResponse {
 	lang := c.GetHeader("language")
 
 	payload.Type = strings.ToUpper(payload.Type)
 	payload.OrderCategory = strings.ToUpper(payload.OrderCategory)
+
+	// Validating the stop price and limit price
 	if payload.OrderCategory != "MARKET" {
 		if payload.OrderCategory == "STOP" && payload.StopPrice == 0 {
 			return commonmodels.ApiResponse{
@@ -48,6 +51,7 @@ func CreateOrderLogic(c *gin.Context, payload orders.OrderRequest) commonmodels.
 		}
 	}
 
+	// getting the user details from the token
 	userDetails, err := commons.FetchUserDataFromAuthToken(c)
 	if err != nil {
 		return commons.GetDefaultApiResponse(http.StatusInternalServerError, lang)
@@ -108,11 +112,13 @@ func CreateOrderLogic(c *gin.Context, payload orders.OrderRequest) commonmodels.
 		orderData.StopPrice = payload.StopPrice
 	}
 
+	// inserting order into mongodb
 	err = db_helpers.InsertOneDocument(db_constants.OrdersCollection, orderData)
 	if err != nil {
 		return commons.GetDefaultApiResponse(http.StatusInternalServerError, lang)
 	}
 
+	// updating the user position if the category is market
 	if payload.OrderCategory == "MARKET" {
 		err = updatePosition(userDetails.ID, orderData)
 		if err != nil {
@@ -120,6 +126,7 @@ func CreateOrderLogic(c *gin.Context, payload orders.OrderRequest) commonmodels.
 		}
 	}
 
+	// sending api response
 	return commonmodels.ApiResponse{
 		Code:    http.StatusOK,
 		Message: localization.GetMessage(lang, "common.200", nil),
@@ -133,6 +140,7 @@ func CreateOrderLogic(c *gin.Context, payload orders.OrderRequest) commonmodels.
 	}
 }
 
+// function to determine the order status based on order category
 func determineOrderStatus(orderType string) string {
 	if orderType == "MARKET" {
 		return "executed"
@@ -140,6 +148,7 @@ func determineOrderStatus(orderType string) string {
 	return "pending"
 }
 
+// function to update the user position
 func updatePosition(userID string, order orders.Order) error {
 
 	filter := bson.M{
@@ -193,6 +202,7 @@ func updatePosition(userID string, order orders.Order) error {
 	return err
 }
 
+// function to get the position volume
 func getPositionVolume(order orders.Order) float64 {
 	if strings.ToLower(order.Type) == "buy" {
 		return order.Volume
@@ -200,6 +210,7 @@ func getPositionVolume(order orders.Order) float64 {
 	return -order.Volume
 }
 
+// function to get the market data in real time using web socket
 func GetMarketData(symbol string) (marketdata.BookTickerData, error) {
 	var marketData marketdata.BookTickerData
 	var marketDataMessage marketdata.BookTickerMessage
@@ -229,6 +240,7 @@ func GetMarketData(symbol string) (marketdata.BookTickerData, error) {
 	return marketData, nil
 }
 
+// function to get the order price based on real time market data
 func GetOrderPrice(orderType string, marketData *marketdata.BookTickerData) (float64, error) {
 	if strings.ToLower(orderType) == "buy" {
 		fmt.Printf("marketData.AskPrice: %v\n", marketData.AskPrice)

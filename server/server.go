@@ -26,8 +26,10 @@ func StartServer() {
 	// set logger in gin
 	router.Use(logwrapper.GinLogger(), gin.Recovery())
 
+	// initializing all the api endpoints and groups
 	initializeRoutes()
 
+	// running the gin server
 	logwrapper.Logger.Infoln("Running Server on port : ", common_constants.SERVER_PORT)
 	logwrapper.Logger.Fatal(router.Run(fmt.Sprintf(":%d", common_constants.SERVER_PORT)))
 

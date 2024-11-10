@@ -2,6 +2,7 @@ package users
 
 import "go.mongodb.org/mongo-driver/bson/primitive"
 
+// users collection db model
 type Users struct {
 	ID            primitive.ObjectID `json:"id" bson:"_id"`
 	FirstName     string             `json:"firstName" bson:"firstName"`
@@ -17,6 +18,7 @@ type Users struct {
 	LastUpdatedOn int64              `json:"lastUpdatedOn" bson:"lastUpdatedOn"`
 }
 
+// register user request model
 type RegisterUserPayload struct {
 	FirstName    string `json:"firstName" valid:"required"`
 	LastName     string `json:"lastName" valid:"optional"`
@@ -28,6 +30,7 @@ type RegisterUserPayload struct {
 	PanNumber    string `json:"panNumber" valid:"required,pan"`
 }
 
+// login user request model
 type LoginUserPayload struct {
 	Password string `json:"password" valid:"required"`
 	Email    string `json:"email" valid:"required,email"`

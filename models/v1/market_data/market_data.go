@@ -1,9 +1,11 @@
 package marketdata
 
+// payload for getting market data
 type GetMarketDataPayload struct {
 	Symbol string `form:"symbol" valid:"optional"`
 }
 
+// aggTrade model
 type AggTrade struct {
 	EventType        string `json:"e"` // Event type
 	EventTime        int64  `json:"E"` // Event time
@@ -17,6 +19,7 @@ type AggTrade struct {
 	IsMarketMaker    bool   `json:"m"` // Is the buyer the market maker
 }
 
+// model for market price from markPrice stream
 type MarkPriceStream struct {
 	Stream string        `json:"stream"` // Stream name
 	Data   MarkPriceData `json:"data"`   // Data details
@@ -33,6 +36,7 @@ type MarkPriceData struct {
 	NextFundingTime      int64  `json:"T"` // Next funding time
 }
 
+// model for market price from book ticker stream
 type BookTickerMessage struct {
 	Stream string         `json:"stream"`
 	Data   BookTickerData `json:"data"`

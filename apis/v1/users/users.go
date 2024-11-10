@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Api Handler for registering user
 func RegisterUserApi(c *gin.Context) {
 	payload, err := commons.ParseJsonPayload[users.RegisterUserPayload](c)
 	if err != nil {
@@ -18,6 +19,7 @@ func RegisterUserApi(c *gin.Context) {
 	commons.SendApiResponse(c, apiResponse)
 }
 
+// Api Handler for login user
 func LoginUserApi(c *gin.Context) {
 	payload, err := commons.ParseJsonPayload[users.LoginUserPayload](c)
 	if err != nil {

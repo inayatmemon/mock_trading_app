@@ -25,7 +25,7 @@ type AuthLanHeader struct {
 	ContentType   string `header:"content-type" binding:"required"`
 }
 
-// This middleware sets whether the user is logged in or not
+// This middleware is used to validate the headers without authorization
 func ValidateHeaders() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		headers := LanHeader{}
@@ -40,7 +40,7 @@ func ValidateHeaders() gin.HandlerFunc {
 	}
 }
 
-// This middleware sets whether the user is logged in or not
+// This middleware is used to validate the headers with authorization
 func ValidateAuthHeaders() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		headers := AuthLanHeader{}
@@ -55,6 +55,7 @@ func ValidateAuthHeaders() gin.HandlerFunc {
 	}
 }
 
+// middleware to validate the token
 func ValidateAuthToken() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		lang := c.GetHeader("language")
@@ -79,6 +80,7 @@ func ValidateAuthToken() gin.HandlerFunc {
 	}
 }
 
+// middlerware to validate the token from the streams
 func ValidateStreamConnectionAuth(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Check for a specific header (e.g., "Authorization")

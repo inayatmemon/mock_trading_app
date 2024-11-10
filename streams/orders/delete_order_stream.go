@@ -21,6 +21,8 @@ func DeleteOrderStream(w http.ResponseWriter, r *http.Request) {
 	}
 
 	defer conn.Close()
+
+	// rading the delete order payload
 	go func() {
 		for {
 			_, deleteOrderData, err := conn.ReadMessage()
@@ -39,6 +41,7 @@ func DeleteOrderStream(w http.ResponseWriter, r *http.Request) {
 			ctx.Request.Header.Set("laguage", "en")
 			ctx.Request.Header.Set("content-type", r.Header.Get("application/json"))
 
+			// validate payload
 			payload, err := commons.ParseJsonPayload[orders.DeleteOrderRequest](&ctx)
 			if err != nil {
 				logwrapper.Logger.Debugln("invalid payload for delete order stream: ", err)

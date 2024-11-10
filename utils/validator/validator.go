@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+// initializing validator and defining custom validators
 func Init() {
 	govalidator.SetFieldsRequiredByDefault(true)
 

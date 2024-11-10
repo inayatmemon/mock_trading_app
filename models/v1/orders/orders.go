@@ -6,6 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+// orders collection db model
 type Order struct {
 	ID              primitive.ObjectID `bson:"_id,omitempty" json:"id"`
 	UserID          string             `bson:"userId" json:"userId"`
@@ -22,6 +23,7 @@ type Order struct {
 	UpdatedAt       time.Time          `bson:"updatedAt" json:"updatedAt"`
 }
 
+// create order payload model
 type OrderRequest struct {
 	Symbol        string  `json:"symbol" valid:"required"`
 	Volume        float64 `json:"volume" valid:"required"`
@@ -31,11 +33,13 @@ type OrderRequest struct {
 	StopPrice     float64 `json:"stopPrice" valid:"optional"`                   // Required for stop orders
 }
 
+// get trade history api request model
 type TradeHistoryRequest struct {
 	OrderId string `form:"orderId" valid:"optional"`
 	Symbol  string `form:"symbol" valid:"optional"`
 }
 
+// delete order from db request model
 type DeleteOrderRequest struct {
 	OrderId string `form:"orderId" valid:"required,objectid"`
 }

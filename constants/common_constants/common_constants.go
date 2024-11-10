@@ -1,5 +1,6 @@
 package common_constants
 
+// constants for the app
 const (
 	LOG_LEVEL          = "DEBUG"
 	DEFAULT_LANGUAGE   = "en"

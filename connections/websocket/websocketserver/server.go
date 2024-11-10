@@ -6,8 +6,9 @@ import (
 	"net/http"
 )
 
+// function to create local websocket server
 func CreateWebSocketServer() error {
-	// http.HandleFunc("/ws", handleWebSocket)
+	// initializing the local streams endpoints
 	streams.InitializeStreams()
 	port := ":9000"
 	logwrapper.Logger.Debugln("WebSocket Server started on port: ", port)

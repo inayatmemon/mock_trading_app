@@ -17,11 +17,13 @@ import (
 func GetTradeHistoryLogic(c *gin.Context, payload orders.TradeHistoryRequest) commonmodels.ApiResponse {
 	lang := c.GetHeader("language")
 
+	// getting the user details from the token
 	userDetails, err := commons.FetchUserDataFromAuthToken(c)
 	if err != nil {
 		return commons.GetDefaultApiResponse(http.StatusInternalServerError, lang)
 	}
 
+	// applying the history filter
 	getTradeHistoryQry := bson.M{
 		"userId": userDetails.ID,
 	}
@@ -35,11 +37,13 @@ func GetTradeHistoryLogic(c *gin.Context, payload orders.TradeHistoryRequest) co
 		getTradeHistoryQry["symbol"] = payload.Symbol
 	}
 
+	// getting the history from the db
 	history, err := db_helpers.GetManyDocuments[orders.Order](db_constants.OrdersCollection, getTradeHistoryQry)
 	if err != nil {
 		return commons.GetDefaultApiResponse(http.StatusInternalServerError, lang)
 	}
 
+	// sending the response
 	if len(history) == 0 {
 		return commonmodels.ApiResponse{
 			Code: http.StatusNoContent,

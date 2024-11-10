@@ -18,7 +18,7 @@ type TokenMetadata struct {
 // Secret key used to sign and verify JWT tokens
 var jwtSecret = []byte("secretKey")
 
-// GenerateToken generates a new JWT token with a specified username and expiration time
+// GenerateToken generates a new JWT token with a specified metadata and expiration time
 func GenerateToken(md TokenMetadata) (string, error) {
 	// Define token claims
 	claims := jwt.MapClaims{

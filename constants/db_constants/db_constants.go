@@ -1,5 +1,6 @@
 package db_constants
 
+// constants for the mongo and web socket
 const (
 	DB_URL         = "mongodb://localhost:27017"
 	MONGO_DATABASE = "trading_platform"

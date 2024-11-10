@@ -6,6 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+// position collection db model
 type Position struct {
 	ID        primitive.ObjectID `bson:"_id" json:"id"`
 	UserID    string             `bson:"userId" json:"userId"`
@@ -15,6 +16,7 @@ type Position struct {
 	UpdatedAt time.Time          `bson:"updatedAt" json:"updatedAt"`
 }
 
+// get position request model
 type GetPositionPayload struct {
 	Symbol string `form:"symbol" valid:"optional"`
 }

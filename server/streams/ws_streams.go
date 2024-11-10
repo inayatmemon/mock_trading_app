@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// function to live all the stream channels
 func InitializeStreams() {
 	http.HandleFunc("/market-data", middleware.ValidateStreamConnectionAuth(marketdata.GetMarketDataStream))
 	http.HandleFunc("/order-create", middleware.ValidateStreamConnectionAuth(orders.CreateOrderStream))

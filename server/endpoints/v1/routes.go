@@ -10,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// function to all the endpoints
 func ApiRoutes(router *gin.RouterGroup) {
 	router.POST("/register", middleware.ValidateHeaders(), users.RegisterUserApi)
 	router.POST("/login", middleware.ValidateHeaders(), users.LoginUserApi)

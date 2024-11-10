@@ -11,8 +11,10 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+// golbal variable client ws connection
 var Conn *websocket.Conn
 
+// function for creating the ws connection
 func createConnection(path string) (*websocket.Conn, error) {
 	var err error
 	if db_constants.WEB_SOCKET_HOST == "" || db_constants.WEB_SOCKET_SCHEME == "" {
@@ -35,6 +37,7 @@ func createConnection(path string) (*websocket.Conn, error) {
 	return conn, nil
 }
 
+// function for subscribing to book ticker ws stream
 func SubscribeToBookTickerStream() error {
 	conn, err := createConnection("/stream?streams=!bookTicker")
 	if err != nil {
@@ -44,6 +47,7 @@ func SubscribeToBookTickerStream() error {
 
 	go func() {
 		for {
+			// getting the message from binance ws
 			_, message, err := conn.ReadMessage()
 			if err != nil {
 				logwrapper.Logger.Debugln("error in reading bookTicker:", err)
@@ -51,6 +55,7 @@ func SubscribeToBookTickerStream() error {
 				break
 			}
 
+			// unmarshalling the message
 			var marketData marketDataModel.BookTickerMessage
 			err = json.Unmarshal(message, &marketData)
 			if err != nil {
@@ -59,6 +64,7 @@ func SubscribeToBookTickerStream() error {
 				break
 			}
 
+			// creating the map for key value for the local ws clients
 			broadcastMessage := map[string]interface{}{
 				"eventType":       marketData.Data.EventType,
 				"updateID":        marketData.Data.UpdateID,
@@ -83,6 +89,7 @@ func SubscribeToBookTickerStream() error {
 	return nil
 }
 
+// funtion to subscribing to market data stream for a symbol
 func SubscribeToLiveMarketPriceStream(symbol string) (*websocket.Conn, error) {
 	conn, err := createConnection("/stream?streams=" + symbol + "@bookTicker")
 	if err != nil {

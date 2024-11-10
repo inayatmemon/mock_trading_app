@@ -18,10 +18,10 @@ type Connection struct {
 	Database string
 }
 
-// Client - MongoDB Connection
+// Client - MongoDB Connection Golbal variable
 var Client *Connection
 
-// NewConnection - new connection of amqp
+// NewConnection - new connection of mongodb
 func NewConnection() error {
 	if db_constants.DB_URL == "" || db_constants.MONGO_DATABASE == "" {
 		return fmt.Errorf("CONFIGURATION IS MISSING FOR MONGODB")

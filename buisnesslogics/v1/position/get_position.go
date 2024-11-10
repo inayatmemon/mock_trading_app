@@ -16,11 +16,13 @@ import (
 func GetPositionLogic(c *gin.Context, payload position.GetPositionPayload) commonmodels.ApiResponse {
 	lang := c.GetHeader("language")
 
+	// getting the user details from the token
 	userDetails, err := commons.FetchUserDataFromAuthToken(c)
 	if err != nil {
 		return commons.GetDefaultApiResponse(http.StatusInternalServerError, lang)
 	}
 
+	// applying the position filter
 	getPositionQry := bson.M{
 		"userId": userDetails.ID,
 	}
@@ -29,11 +31,13 @@ func GetPositionLogic(c *gin.Context, payload position.GetPositionPayload) commo
 		getPositionQry["symbol"] = payload.Symbol
 	}
 
+	// getting the position from the db
 	position, err := db_helpers.GetManyDocuments[position.Position](db_constants.PositionsCollection, getPositionQry)
 	if err != nil {
 		return commons.GetDefaultApiResponse(http.StatusInternalServerError, lang)
 	}
 
+	// sending the response
 	if len(position) == 0 {
 		return commonmodels.ApiResponse{
 			Code: http.StatusNoContent,

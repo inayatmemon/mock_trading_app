@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Api Handler for getting user position
 func GetPosition(c *gin.Context) {
 	payload, err := commons.ParseQueryPayload[position.GetPositionPayload](c)
 	if err != nil {

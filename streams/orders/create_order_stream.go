@@ -21,6 +21,8 @@ func CreateOrderStream(w http.ResponseWriter, r *http.Request) {
 	}
 
 	defer conn.Close()
+
+	// reading the create order payload message
 	go func() {
 		for {
 			_, createOrderData, err := conn.ReadMessage()
@@ -39,6 +41,7 @@ func CreateOrderStream(w http.ResponseWriter, r *http.Request) {
 			ctx.Request.Header.Set("laguage", "en")
 			ctx.Request.Header.Set("content-type", r.Header.Get("application/json"))
 
+			// validate payload
 			payload, err := commons.ParseJsonPayload[orders.OrderRequest](&ctx)
 			if err != nil {
 				logwrapper.Logger.Debugln("invalid payload for create order stream: ", err)

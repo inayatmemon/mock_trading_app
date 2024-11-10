@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Api Handler for getting trade history
 func GetTradeHistoryApi(c *gin.Context) {
 	payload, err := commons.ParseQueryPayload[orders.TradeHistoryRequest](c)
 	if err != nil {

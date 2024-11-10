@@ -4,7 +4,7 @@ import (
 	v1 "9DotTechnology/trading_platform/server/endpoints/v1"
 )
 
-// Initializing all the routes
+// Initializing all the routes groups
 func initializeRoutes() {
 
 	// Version 1 routes

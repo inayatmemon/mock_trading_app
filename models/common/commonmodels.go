@@ -1,5 +1,6 @@
 package commonmodels
 
+// api and streams response model
 type ApiResponse struct {
 	Code           int         `json:"code"`
 	Message        string      `json:"message"`

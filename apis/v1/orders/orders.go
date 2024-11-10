@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Api Handler for create order
 func CreateOrder(c *gin.Context) {
 	payload, err := commons.ParseJsonPayload[orders.OrderRequest](c)
 	if err != nil {
@@ -18,6 +19,7 @@ func CreateOrder(c *gin.Context) {
 	commons.SendApiResponse(c, apiResponse)
 }
 
+// Api Handler for delete order
 func DeleteOrder(c *gin.Context) {
 	payload, err := commons.ParseJsonPayload[orders.DeleteOrderRequest](c)
 	if err != nil {

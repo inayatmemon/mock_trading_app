@@ -17,20 +17,24 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// buisness logic function for deleting the order if it has pending status
 func DeleteOrderLogic(c *gin.Context, payload orders.DeleteOrderRequest) commonmodels.ApiResponse {
 	lang := c.GetHeader("language")
 
 	objId, _ := primitive.ObjectIDFromHex(payload.OrderId)
 
+	// applying the order id filter
 	filter := bson.M{
 		"_id": objId,
 	}
 
+	// getting the order details from the db
 	orderDetails, err := db_helpers.GetOneDocument[orders.Order](db_constants.OrdersCollection, filter)
 	if err == mongo.ErrNoDocuments {
 		return commons.GetDefaultApiResponse(http.StatusNotFound, lang)
 	}
 
+	// sending the message to user if the status of the order is executed
 	if orderDetails.Status == "executed" {
 		return commonmodels.ApiResponse{
 			Code:    http.StatusUnprocessableEntity,
@@ -38,6 +42,7 @@ func DeleteOrderLogic(c *gin.Context, payload orders.DeleteOrderRequest) commonm
 		}
 	}
 
+	// sending the message to user if the status of the order is deleted
 	if orderDetails.Status == "deleted" {
 		return commonmodels.ApiResponse{
 			Code:    http.StatusUnprocessableEntity,
@@ -45,6 +50,7 @@ func DeleteOrderLogic(c *gin.Context, payload orders.DeleteOrderRequest) commonm
 		}
 	}
 
+	// updating the status as deleted in db
 	updateData := bson.M{
 		"status":    "deleted",
 		"updatedAt": time.Now(),
