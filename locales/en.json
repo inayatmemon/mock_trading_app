@@ -1,0 +1,27 @@
+{
+    "common": {
+        "200": "Success",
+        "201": "Data Inserted Successfully",
+        "400": "{{.Fields}} {{.Verb}} required {{.Field}}.",
+        "401": "Unauthorized Access, Provided Token is Expired or Invalid.",
+        "404": "Data Not Found.",
+        "500": "Internal server error"
+    },
+    "custom": {
+        "invalid_fields": "{{.Field}} is not valid, please provide valid {{.Field}} field, {{.Details}}",
+        "invalid_data_type": "{{.Field}} is not valid, the expected type is {{.Expected}} but you provided {{.Provided}}"
+    },
+    "users":{
+        "conflict": "User already exist with the given mobile, email, aadhar or pan number.",
+        "not_registered": "User with {{.Email}} email is not registered with us, please check the email or register first.",
+        "password": "The password is incorrect.",
+        "inactive_account":"Your account is inactive or banned, please contact admin."
+    },
+    "orders": {
+        "exceeds_10_lots": "Cannot place order since your position exceeds 10 lots.",
+        "negative": "Cannot place order since your position is going below 0.",
+        "price": "{{.Type}} Cannot be zero, please keep {{.Type}} greater than 0.",
+        "already_executed": "This order already has been executed.",
+        "already_deleted": "This order already has been deleted."
+    }
+}

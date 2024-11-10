@@ -1,0 +1,10 @@
+There are 3 websockets in this projects:
+
+1) Get market data live: As soon as market data is live you will see that in this websocket stream. Connect on given below stream after successfully compiling the server and you will see the data.
+    ws://localhost:9000/market-data
+
+2) Place order: You can also place order with the below stream. Both ways are available for placing orders like api and websocket.
+    ws://localhost:9000/order-create
+
+3) Delete order: You can also delete order with the below stream. Both ways are available for deleting the pending orders like api and websocket.
+    ws://localhost:9000/order-delete

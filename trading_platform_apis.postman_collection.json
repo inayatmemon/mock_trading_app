@@ -1,0 +1,740 @@
+{
+	"info": {
+		"_postman_id": "897fee8c-fdf7-4238-8032-a4c1aeaf88c8",
+		"name": "trading_platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12168583"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"password\": \"SecurePass123!\",\r\n  \"countryCode\": \"+91\",\r\n  \"mobile\": \"9876543211\",\r\n  \"email\": \"john.doe@example.comm\",\r\n  \"aadharNumber\": \"223456789013\",\r\n  \"panNumber\": \"ABCDE1234G\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register user response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"password\": \"SecurePass123!\",\r\n  \"countryCode\": \"+91\",\r\n  \"mobile\": \"9876543213\",\r\n  \"email\": \"john.doe@example.in\",\r\n  \"aadharNumber\": \"223456789014\",\r\n  \"panNumber\": \"ABCDE1234E\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1000/api/v1/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:54:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Data Inserted Successfully\",\n    \"data\": null,\n    \"totalCount\": 0,\n    \"totalPageCount\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"SecurePass123!\",\r\n  \"email\": \"john.doe@example.com\"\r\n}\r\n\r\n//SecurePass123",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login user response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"SecurePass123!\",\r\n  \"email\": \"john.doe@example.com\"\r\n}\r\n\r\n//SecurePass123",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1000/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:54:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "444"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"email\": \"john.doe@example.com\",\n        \"tokenDetails\": {\n            \"expiresAt\": 1731257690,\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s\"\n        },\n        \"userId\": \"672e0c294f09a233eef7d7ab\"\n    },\n    \"totalCount\": 0,\n    \"totalPageCount\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "place order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"symbol\": \"btcusdt\",\r\n  \"volume\": 0.1,\r\n  \"type\": \"SELL\",\r\n  \"orderCategory\": \"market\",\r\n  \"limitPrice\": 0,\r\n  \"stopPrice\": 0\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "place order executed response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"symbol\": \"btcusdt\",\r\n  \"volume\": 0.1,\r\n  \"type\": \"SELL\",\r\n  \"orderCategory\": \"market\",\r\n  \"limitPrice\": 0,\r\n  \"stopPrice\": 0\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1000/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:55:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"orderId\": \"6730d76affa7e9edeaa24157\",\n        \"price\": 79731.4,\n        \"qauntity\": 0.1,\n        \"status\": \"executed\",\n        \"timestamp\": 1731254122880\n    },\n    \"totalCount\": 0,\n    \"totalPageCount\": 0\n}"
+						},
+						{
+							"name": "place order pending response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"symbol\": \"btcusdt\",\r\n  \"volume\": 0.1,\r\n  \"type\": \"BUY\",\r\n  \"orderCategory\": \"STOP\",\r\n  \"limitPrice\": 0,\r\n  \"stopPrice\": 20000\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1000/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:55:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"orderId\": \"6730d784ffa7e9edeaa24158\",\n        \"price\": 79714.2,\n        \"qauntity\": 0.1,\n        \"status\": \"pending\",\n        \"timestamp\": 1731254148207\n    },\n    \"totalCount\": 0,\n    \"totalPageCount\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "delete order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderId\": \"6730d784ffa7e9edeaa24158\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete order response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"orderId\": \"6730d784ffa7e9edeaa24158\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1000/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:56:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": null,\n    \"totalCount\": 0,\n    \"totalPageCount\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "position",
+			"item": [
+				{
+					"name": "get position",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1000/api/v1/position",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"position"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "btcusdt",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get position response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:1000/api/v1/position",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"position"
+									],
+									"query": [
+										{
+											"key": "symbol",
+											"value": "btcusdt",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:56:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"672f6e5a26fea82444e04fc8\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"avgPrice\": 79803.4,\n            \"updatedAt\": \"2024-11-10T15:55:22.88Z\"\n        }\n    ],\n    \"totalCount\": 1,\n    \"totalPageCount\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "trade-history",
+			"item": [
+				{
+					"name": "get trade-hsitory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1000/api/v1/trade-history?symbol=btcusdt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"trade-history"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "672f6e5a26fea82444e04fc7",
+									"disabled": true
+								},
+								{
+									"key": "symbol",
+									"value": "btcusdt"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get trade-hsitory response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6Iis5MSIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzEyNTc2OTAsIm1vYmlsZSI6Ijk4NzY1NDMyMTAiLCJ1c2VySWQiOiI2NzJlMGMyOTRmMDlhMjMzZWVmN2Q3YWIifQ.76d13fpYUDChNE7QnLI_X6_RZWUe0KVcvMr7bhbX67s",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:1000/api/v1/trade-history?symbol=btcusdt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1000",
+									"path": [
+										"api",
+										"v1",
+										"trade-history"
+									],
+									"query": [
+										{
+											"key": "orderId",
+											"value": "672f6e5a26fea82444e04fc7",
+											"disabled": true
+										},
+										{
+											"key": "symbol",
+											"value": "btcusdt"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Nov 2024 15:56:46 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"672f6e5a26fea82444e04fc7\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.5,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76289.7,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 38144.85,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:14:50.709Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6e8626fea82444e04fc9\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 2.5,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76324.7,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 190811.75,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:15:34.492Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6eaa26fea82444e04fca\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76285.7,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610285.6,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:16:10.314Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6eeb7439e9f8e90614ac\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76296.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610372,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:17:15.697Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6eee7439e9f8e90614ad\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76296.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610372,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:17:18.447Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6efb265a0bcf29bea01a\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76296.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610372,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:17:31.465Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6efd265a0bcf29bea01b\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76296.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610372,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:17:33.426Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6eff265a0bcf29bea01c\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76296.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610372,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:17:35.487Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f6f01265a0bcf29bea01d\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76296.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610372,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:17:37.432Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672f7098eb95c693aea5de1d\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"SELL\",\n            \"orderCategory\": \"\",\n            \"pricePerVoulume\": 76265.6,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 610124.8,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T14:24:24.389Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672fb8bb5bdb1364955e2811\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"SELL\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 76171.2,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 609369.6,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T19:32:11.394Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672fb92d303bc25cd9fc6f2d\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 8,\n            \"type\": \"SELL\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 76227.2,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 609817.6,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T19:34:05.841Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672fb95c303bc25cd9fc6f2e\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 76204.5,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7620.450000000001,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-09T19:34:52.76Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672fb97f303bc25cd9fc6f2f\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"LIMIT\",\n            \"pricePerVoulume\": 0,\n            \"limitPrice\": 76200,\n            \"stopPrice\": 0,\n            \"totalPrice\": 0,\n            \"status\": \"deleted\",\n            \"createdAt\": \"2024-11-09T19:35:27.86Z\",\n            \"updatedAt\": \"2024-11-10T07:51:26.221Z\"\n        },\n        {\n            \"id\": \"672fba0366589973dacdce74\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"LIMIT\",\n            \"pricePerVoulume\": 0,\n            \"limitPrice\": 75200,\n            \"stopPrice\": 0,\n            \"totalPrice\": 0,\n            \"status\": \"pending\",\n            \"createdAt\": \"2024-11-09T19:37:39.493Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"672fba4766589973dacdce75\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"STOP\",\n            \"pricePerVoulume\": 0,\n            \"limitPrice\": 0,\n            \"stopPrice\": 75000,\n            \"totalPrice\": 0,\n            \"status\": \"deleted\",\n            \"createdAt\": \"2024-11-09T19:38:47.555Z\",\n            \"updatedAt\": \"2024-11-09T19:57:56.853Z\"\n        },\n        {\n            \"id\": \"673064a4151ef59e911776c7\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"STOP\",\n            \"pricePerVoulume\": 0,\n            \"limitPrice\": 0,\n            \"stopPrice\": 75000,\n            \"totalPrice\": 0,\n            \"status\": \"pending\",\n            \"createdAt\": \"2024-11-10T07:45:40.681Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"673064be151ef59e911776c8\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 78850.1,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7885.010000000001,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-10T07:46:06.817Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"6730653f151ef59e911776c9\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"SELL\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 78799.3,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7879.93,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-10T07:48:15.702Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"6730be297c1accdbea6766ed\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"SELL\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 79670.9,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7967.09,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-10T14:07:37.223Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"6730d53d43d59fd31f00e367\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 79765,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7976.5,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-10T15:46:05.72Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"6730d54243d59fd31f00e368\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 79769.8,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7976.9800000000005,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-10T15:46:10.417Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"6730d5f32f6c3dc1323ee2de\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"STOP\",\n            \"pricePerVoulume\": 0,\n            \"limitPrice\": 0,\n            \"stopPrice\": 75000,\n            \"totalPrice\": 0,\n            \"status\": \"deleted\",\n            \"createdAt\": \"2024-11-10T15:49:07.536Z\",\n            \"updatedAt\": \"2024-11-10T15:50:51.853Z\"\n        },\n        {\n            \"id\": \"6730d76affa7e9edeaa24157\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"SELL\",\n            \"orderCategory\": \"MARKET\",\n            \"pricePerVoulume\": 79731.4,\n            \"limitPrice\": 0,\n            \"stopPrice\": 0,\n            \"totalPrice\": 7973.139999999999,\n            \"status\": \"executed\",\n            \"createdAt\": \"2024-11-10T15:55:22.879Z\",\n            \"updatedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        {\n            \"id\": \"6730d784ffa7e9edeaa24158\",\n            \"userId\": \"672e0c294f09a233eef7d7ab\",\n            \"symbol\": \"btcusdt\",\n            \"volume\": 0.1,\n            \"type\": \"BUY\",\n            \"orderCategory\": \"STOP\",\n            \"pricePerVoulume\": 0,\n            \"limitPrice\": 0,\n            \"stopPrice\": 20000,\n            \"totalPrice\": 0,\n            \"status\": \"deleted\",\n            \"createdAt\": \"2024-11-10T15:55:48.206Z\",\n            \"updatedAt\": \"2024-11-10T15:56:11.521Z\"\n        }\n    ],\n    \"totalCount\": 25,\n    \"totalPageCount\": 1\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
